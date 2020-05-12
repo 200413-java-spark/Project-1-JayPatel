@@ -71,28 +71,22 @@ public class Server {
         JavaRDD <String> rawRDD = context.textFile(new File("src/main/resources/forbes_celebrity_100.csv").getAbsolutePath());
         
        String mkl =  (String) rawRDD.first();
-        JavaRDD<String> headerlessRows = rawRDD.filter(row -> !row.equals(mkl));
+        JavaRDD<String> rdd = rawRDD.filter(row -> !row.equals(mkl));
     
     
-        JavaRDD <csvExtraction> filteredHeaderlessRow = headerlessRows.map( (n) -> {
-		    String[] fields =	n.split(",");
-			return new csvExtraction(fields[0],fields[1],fields[2], fields[3]);
+        JavaRDD <csvExtraction> newrdd = rdd.map( (n) -> {
+		    String[] colname =	n.split(",");
+			return new csvExtraction(colname[0],colname[1],colname[2], colname[3]);
         });
         
         
-		// //sysout print check
-		// filteredHeaderlessRow.foreach(f -> {
-		// 	System.out.println(f.name + " "+ f.pay + " "+ f.year + " " + f.category + " " );
-		// });
-		
 
 
 
-
-    //   // return filteredHeaderlessRow;
+ 
     
 
-    RDDManipulation rddManipulation = new RDDManipulation(filteredHeaderlessRow);
+    RDDManipulation rddManipulation = new RDDManipulation(newrdd);
      System.out.println(RDDManipulation.count().collect());
 
 
