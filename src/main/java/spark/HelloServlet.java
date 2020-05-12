@@ -26,27 +26,31 @@ public class HelloServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
+
+
+
 		
-		String name = req.getParameter("name");
 		
-		if(name != null) {
-			names.add(name);
-			names.set(0, name);
-			resp.getWriter().println("Hello " + name);
+		// String name = req.getParameter("name");
+		
+		// if(name != null) {
+		// 	names.add(name);
+		// 	names.set(0, name);
+		// 	resp.getWriter().println("Hello " + name);
 
-		} 
+		// } 
 
-		// for (String n : names) {
-		// 	resp.getWriter().println(n);
-		// }
+		// // for (String n : names) {
+		// // 	resp.getWriter().println(n);
+		// // }
 
-		names.forEach((n) -> {
-			try {
-				resp.getWriter().println(n);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		});
+		// names.forEach((n) -> {
+		// 	try {
+		// 		resp.getWriter().println(n);
+		// 	} catch (IOException e) {
+		// 		e.printStackTrace();
+		// 	}
+		// });
 	
 	}
 
