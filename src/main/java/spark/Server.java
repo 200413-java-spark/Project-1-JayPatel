@@ -15,37 +15,45 @@ import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.rdd.RDD;
 import org.apache.zookeeper.Op.Create;
 
+import spark.IO.CreateRDD;
+import spark.IO.csvExtraction;
+import spark.IO.sqlRepo;
+import spark.Servlet.TheServlet;
+import spark.sparkRDD.RDDManipulation;
+import spark.sparkRDD.Structures;
+
 public class Server {
 
-    public static void main(String[] args) throws LifecycleException {
-        server();
-        sparkandsql();
-     
-    }
+   public static HashMap<String, String> sqlStucture;
 
-    public static void  sparkandsql()  {
-        SparkConf conf = new SparkConf().setAppName("project-1").setMaster("local");
-        JavaSparkContext context = new JavaSparkContext(conf);  
+   public static void main(String[] args) throws LifecycleException {
+       server();
+       sparkandsql();
 
-        JavaRDD <csvExtraction> rawRDD = new CreateRDD().rawRDDCreation(context);
+   }
 
- 
+   public static void sparkandsql() {
+       SparkConf conf = new SparkConf().setAppName("project-1").setMaster("local");
+       JavaSparkContext context = new JavaSparkContext(conf);
 
-        RDDManipulation rddManipulation = new RDDManipulation(rawRDD);
-     //   System.out.println(RDDManipulation.avgRadius_Mean().collect());
+       JavaRDD<csvExtraction> rawRDD = new CreateRDD().rawRDDCreation(context);
 
-        HashMap<String,String> sqlStucture = new Structures().getStructure(rawRDD);
+       RDDManipulation rddManipulation = new RDDManipulation(rawRDD);
+       // System.out.println(RDDManipulation.avgRadius_Mean().collect());
+
+       sqlStucture = new Structures().getStructure(rawRDD);
+       
         // sqlStucture.entrySet().forEach(entry->{
         //     System.out.println(entry.getKey() + " " + entry.getValue());  
         //  });
 
-        sqlRepo entries = new sqlRepo(); 
-            sqlStucture.entrySet().forEach(entry->{
-            entries.insertAll(entry.getKey(), entry.getValue());
-         });
+        // sqlRepo entries = new sqlRepo(); 
+        //     sqlStucture.entrySet().forEach(entry->{
+        //     entries.insertAll(entry.getKey(), entry.getValue());
+        //  });
 
         
-   
+        System.out.println("Server is up and running!!!!!");
     
     }
 

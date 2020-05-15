@@ -1,22 +1,19 @@
-package spark;
+package spark.IO;
 
 public class csvExtraction {
-
-    int id; String diagnosis; double radius_mean; double texture_mean; double perimeter_mean; double area_mean; double smoothness_mean; double compactness_mean; double concavity_mean;
-    double concave_points_mean; double symmetry_mean; double fractal_dimension_mean; double radius_se; double texture_se; double perimeter_se; double area_se; double smoothness_se; double compactness_se;
-     double concavity_se; double concave_points_se; double symmetry_se; double fractal_dimension_se; double radius_worst; double texture_worst; double perimeter_worst; double area_worst; double smoothness_worst; 
-     double compactness_worst; double concavity_worst; double concave_points_worst; double symmetry_worst; double fractal_dimension_worst;
+  
+   public int id; public String diagnosis;  public double radius_mean;  public double texture_mean; public double perimeter_mean; public double area_mean; public double smoothness_mean; public double compactness_mean; public double concavity_mean;
+    public double concave_points_mean; public double symmetry_mean; public double fractal_dimension_mean; public double radius_se; public double texture_se; public double perimeter_se; public double area_se; public double smoothness_se; public double compactness_se;
+     public double concavity_se; public double concave_points_se; public double symmetry_se; public double fractal_dimension_se; public double radius_worst; public double texture_worst; public double perimeter_worst; public double area_worst; public double smoothness_worst; 
+     public double compactness_worst; public double concavity_worst; public double concave_points_worst; public double symmetry_worst; public double fractal_dimension_worst;
 
     
 
      public csvExtraction(String id, String diagnosis, String radius_mean, String texture_mean, String perimeter_mean, String area_mean, String smoothness_mean, String compactness_mean, String concavity_mean,
      String concave_points_mean, String symmetry_mean, String fractal_dimension_mean, String radius_se, String texture_se, String perimeter_se, String area_se, String smoothness_se, String compactness_se,
       String concavity_se, String concave_points_se, String symmetry_se, String fractal_dimension_se, String radius_worst, String texture_worst, String perimeter_worst, String area_worst, String smoothness_worst, 
-      String compactness_worst, String concavity_worst, String concave_points_worst, String symmetry_worst, String fractal_dimension_worst) {
-
-
-
-
+      String compactness_worst, String concavity_worst, String concave_points_worst, String symmetry_worst, String fractal_dimension_worst) 
+      {
         this.id = Integer.parseInt(id); this.diagnosis = diagnosis;
          this.radius_mean = Double.parseDouble(radius_mean); this.texture_mean = Double.parseDouble(texture_mean); this.perimeter_mean = Double.parseDouble(perimeter_mean);
          this.area_mean = Double.parseDouble(area_mean); this.smoothness_mean = Double.parseDouble(smoothness_mean); this.compactness_mean = Double.parseDouble(compactness_mean); this.concavity_mean = Double.parseDouble(concavity_mean);

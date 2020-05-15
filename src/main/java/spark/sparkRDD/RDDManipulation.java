@@ -1,15 +1,16 @@
-package spark;
+package spark.sparkRDD;
 
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 
 import scala.Tuple2;
+import spark.IO.csvExtraction;
 
 public class RDDManipulation {
     
      static JavaRDD<csvExtraction> rawRDD;
 
-    RDDManipulation(JavaRDD<csvExtraction> rawRDD) {
+    public RDDManipulation(JavaRDD<csvExtraction> rawRDD) {
         this.rawRDD = rawRDD;
     }
 
