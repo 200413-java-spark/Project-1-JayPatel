@@ -40,11 +40,11 @@ java -jar target/spark-0.0.1-SNAPSHOT.jar
 
 ## Design
 ### Architecture
-- sparkRDD package handels all of the batch processing 
+- sparkRDD package handles all of the batch processing 
 - IO package handles all the csv parsing and connection to database
-- Servlets package handels all the http servlets classes/methods
+- Servlets package handles all the http servlets classes/methods
 
-### Algorithim
+### Algorithm
 - The csv file is parsed and the data is formed into an RDD
 - Transformations are done on the RDD to analyze the dataset
 - The transformations are put into a data structure which is then sent to a database
