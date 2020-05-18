@@ -10,7 +10,7 @@ import java.util.List;
 
 public class sqlRepo {
     
-    private static sqlDataSource dataSource;
+    private static sqlDataSource dataSource = sqlDataSource.getDataSource();
 
     public void insertAll(String s, String l) {
         String stmt = "insert into Project1Table(category, numbers) values(?,?)";

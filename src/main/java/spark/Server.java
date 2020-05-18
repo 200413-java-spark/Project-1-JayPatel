@@ -47,10 +47,10 @@ public class Server {
         //     System.out.println(entry.getKey() + " " + entry.getValue());  
         //  });
 
-        // sqlRepo entries = new sqlRepo(); 
-        //     sqlStucture.entrySet().forEach(entry->{
-        //     entries.insertAll(entry.getKey(), entry.getValue());
-        //  });
+        sqlRepo entries = new sqlRepo(); 
+            sqlStucture.entrySet().forEach(entry->{
+            entries.insertAll(entry.getKey(), entry.getValue());
+         });
 
         
         System.out.println("Server is up and running!!!!!");

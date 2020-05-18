@@ -34,29 +34,31 @@ public class TheServlet extends HttpServlet {
         
         
 
-        // String getStmt = "Select * from Project1Table";
+        String getStmt = "Select * from Project1Table";
 
-        // HashMap<String, String> table = new HashMap<>();
-        // sqlRepo reader = new sqlRepo();
-        // table =  sqlRepo.readAll(getStmt);
-        //table.entrySet().forEach(entry->{
-        //     try {
-        //        resp.getWriter().println("The " + entry.getKey() + " are " + entry.getValue());
-        //    } catch (IOException e) {
-        //        e.printStackTrace();
-        //    }
-        // });
+        HashMap<String, String> table = new HashMap<>();
+        sqlRepo reader = new sqlRepo();
+
 
         if (category == null) {
-                Server.sqlStucture.entrySet().forEach(entry->{
-                try {
-                    resp.getWriter().println("The average " + entry.getKey() + " for the tumors are " + entry.getValue());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                // Server.sqlStucture.entrySet().forEach(entry->{
+                // try {
+                //     resp.getWriter().println("The average " + entry.getKey() + " for the tumors are " + entry.getValue());
+                // } catch (IOException e) {
+                //     e.printStackTrace();
+                // }
+                // });
+
+                table =  sqlRepo.readAll(getStmt);
+                table.entrySet().forEach(entry->{
+                    try {
+                       resp.getWriter().println("The " + entry.getKey() + " are " + entry.getValue());
+                   } catch (IOException e) {
+                       e.printStackTrace();
+                   }
                 });
             } else {
-                resp.getWriter().println("The average " + category + " for the tumors are " + Server.sqlStucture.get(category));
+                resp.getWriter().println("The average " + category + " for the tumors are " + table.get(category));
              }
 
         
